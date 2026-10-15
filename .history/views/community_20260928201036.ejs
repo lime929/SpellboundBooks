@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Community</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="community-title">
+      <h1>SpellBound Books <b>READS</b></h1>
+    </div>
+    <%- include("partials/communityHeader") %>
+     <div class="reviews-container">
+      <% communityReviews.forEach(review => { %>
+      <div class="review-card">
+        <img src="<%= review.image %>" alt="<%= review.book %>" />
+        <h2><%= review.book %></h2>
+        <p><strong>Reviewed by:</strong> <%= review.user %></p>
+        <p><%= review.review %></p>
+      </div>
+      <% }); %>
+    </div>
+    <section class="catalog-container">
+  <h1>Book Catalog</h1>
+
+  <div class="book-grid">
+    <% offeredBooks.forEach((book) => { %>
+      <article class="book-card">
+        <img
+          src="/<%= book.image %>"
+          alt="Cover of <%= book.title %>"
+          class="book-card__image"
+        >
+
+        <div class="book-card__content">
+          <h2><%= book.title %></h2>
+
+          <p class="book-author">
+            By <%= book.author %>
+          </p>
+
+          <p class="book-description">
+            <%= book.description %>
+          </p>
+
+          <p>
+            <strong>Format:</strong> <%= book.format %>
+          </p>
+
+          <p>
+            <strong>Price:</strong> $<%= book.price.toFixed(2) %>
+          </p>
+
+          <p class="book-rating">
+            <span
+              class="stars"
+              role="img"
+              aria-label="<%= book.rating %> out of 5 stars"
+            >
+              <% for (let star = 1; star <= 5; star++) { %>
+                <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+              <% } %>
+            </span>
+
+            <span class="rating-number">
+              <%= book.rating %> / 5
+            </span>
+          </p>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+  </body>
+</html>

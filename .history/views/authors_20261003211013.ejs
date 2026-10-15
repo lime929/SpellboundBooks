@@ -1,0 +1,96 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Authors</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Author Spotlight</h2>
+        <p>
+          Learn about the authors behind the books you love. Learn more about
+          their lives, works, and inspirations.
+        </p>
+        <p>
+          Or discover a new writer to fall in love with! View our large
+          selection of books and authors.
+        </p>
+      </div>
+      <%- include("partials/bookBannerAd") %>
+      <!-- New flex container for sidebar and author boxes -->
+      <div class="content">
+         <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#fiction">Fiction</a></li>
+            <li><a href="#non-fiction">Non-Fiction</a></li>
+            <li><a href="#mystery">Mystery</a></li>
+            <li><a href="#poetry">Poetry</a></li>
+          </ul>
+        </aside>
+
+        <main class="book-list">
+          <div class="bestsellers">
+            <h3>Bestselling Authors</h3>
+            <% offeredAuthors.slice(0, 4).forEach(author => { %>
+            <div class="book-item">
+              <img
+                src="<%= author.image %>"
+                alt="<%= author.name %> picture"
+                class="book-image"
+              />
+              <h3><%= author.name %></h3>
+              <p><%= author.description %></p>
+            </div>
+            <% }); %>
+          </div>
+
+          <section class="catalog-section">
+            <div class="catalog-section-heading" id="fiction">
+              <h1>Fiction</h1>
+              <p>Discover the latest and greatest fiction titles.</p>
+            </div>
+            <div class="book-grid">
+              <% offeredAuthors
+              .filter((book) => book.genre === "Fiction")
+              .forEach((book) => { %>
+                <article class="book-card">
+                  <img
+                    src="/<%= book.image %>"
+                    alt="Cover of <%= book.title %>"
+                    class="book-card_image"
+                  >
+
+                  <div class="book-card_content">
+                    <h2 class="book-card_title"><%= book.title %></h2>
+                    <p class="book-card_author"><%= book.author %></p>
+                    <p class="book-card_format"><%= book.format %></p>
+                    <p class="book-card_price">$<%= book.price.toFixed(2) %></p>
+                    <p class="book-card_rating">
+                      <span
+                        class="stars"
+                        role="img"
+                        aria-label="<%= book.rating %> out of 5 stars"
+                      >
+                        <% for (let star = 1; star <= 5; star++) { %>
+                          <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+                        <% } %>
+                      </span>
+                      <span class="rating-number"><%= book.rating %> / 5</span>
+                    </p>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+
+           
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confetti Cuisine | Questions</title>
+    <link rel="stylesheet" href="/css/confetti_cuisine.css" />
+  </head>
+  <body>
+    <div class="list-container">
+      <% questions.forEach(s => { %>
+      <div class="question">
+        <strong>Name:</strong> <%= question.name %><br />
+        <strong>Email:</strong> <%= question.email %><br />
+        <strong>Zip Code:</strong> <%= question.zipCode %>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

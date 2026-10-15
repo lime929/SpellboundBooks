@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Catalog</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Our Book Store</h2>
+        <p>
+          Find the greatest books to read now, including new releases,
+          bookseller suggestions, and popular titles.
+        </p>
+      </div>
+
+
+
+          <%- include("partials/bookBannerAd") %>
+
+
+      <div class="content">
+        <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Non-Fiction</a></li>
+            <li><a href="#">Mystery</a></li>
+            <li><a href="#">Poetry</a></li>
+          </ul>
+        </aside>
+
+        <main class="book-list">
+          <section class="catalog-section">
+            <div class="catalog-section_heading">
+              <h1>Bestsellers</h1>
+              <p>Explore the reader-favorite titles in our collection.</p>
+            </div>
+
+            <div class="book-grid">
+              <% offeredBooks.slice(0, 5).forEach((book) => { %>
+                <article class="book-card">
+                  <img
+                    src="/<%= book.image %>"
+                    alt="Cover of <%= book.title %>"
+                    class="book-card_image"
+                  >
+
+                  <div class="book-card_content">
+                    <h2 class="book-card_title"><%= book.title %></h2>
+                    <p class="book-card_author"><%= book.author %></p>
+                    <p class="book-card_format"><%= book.format %></p>
+                    <p class="book-card_price">$<%= book.price.toFixed(2) %></p>
+                    <p class="book-card_rating">
+                      <span
+                        class="stars"
+                        role="img"
+                        aria-label="<%= book.rating %> out of 5 stars"
+                      >
+                        <% for (let star = 1; star <= 5; star++) { %>
+                          <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+                        <% } %>
+                      </span>
+                      <span class="rating-number"><%= book.rating %> / 5</span>
+                    </p>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+          </section>
+          <section class="catalog-section">
+            <div class="catalog-section_heading">
+              <h1>Fiction</h1>
+              <p>Discover the latest and greatest fiction titles.</p>
+            </div>
+
+            <div class="book-grid">
+              <% offeredBooks
+              .filter((book) => book.genre === "Fiction")
+              .forEach((book) => { %>
+                <article class="book-card">
+                  <img
+                    src="/<%= book.image %>"
+                    alt="Cover of <%= book.title %>"
+                    class="book-card_image"
+                  >
+
+                  <div class="book-card_content">
+                    <h2 class="book-card_title"><%= book.title %></h2>
+                    <p class="book-card_author"><%= book.author %></p>
+                    <p class="book-card_format"><%= book.format %></p>
+                    <p class="book-card_price">$<%= book.price.toFixed(2) %></p>
+                    <p class="book-card_rating">
+                      <span
+                        class="stars"
+                        role="img"
+                        aria-label="<%= book.rating %> out of 5 stars"
+                      >
+                        <% for (let star = 1; star <= 5; star++) { %>
+                          <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+                        <% } %>
+                      </span>
+                      <span class="rating-number"><%= book.rating %> / 5</span>
+                    </p>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+          </section>
+
+       
+        </main>
+       
+      </div>
+    </div>
+  </body>
+</html>

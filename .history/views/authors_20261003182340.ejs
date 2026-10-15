@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Authors</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Author Spotlight</h2>
+        <p>
+          Learn about the authors behind the books you love. Learn more about
+          their lives, works, and inspirations.
+        </p>
+        <p>
+          Or discover a new writer to fall in love with! View our large
+          selection of books and authors.
+        </p>
+      </div>
+      <%- include("partials/bookBannerAd") %>
+      <!-- New flex container for sidebar and author boxes -->
+      <div class="content">
+        <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Non-Fiction</a></li>
+            <li><a href="#">Mystery</a></li>
+            <li><a href="#">Poetry</a></li>
+          </ul>
+        </aside>
+
+        <main class="book-list">
+          <div class="bestsellers">
+            <h3>Bestselling Authors</h3>
+            <% offeredAuthors.slice(0, 4).forEach(author => { %>
+            <div class="book-item">
+              <img
+                src="<%= author.image %>"
+                alt="<%= author.name %> picture"
+                class="book-image"
+              />
+              <h3><%= author.name %></h3>
+              <p><%= author.description %></p>
+            </div>
+            <% }); %>
+          </div>
+          <!-- <div class="new-releases">
+            <h3>New Authors</h3>
+            <% offeredAuthors.slice(-4).forEach(author => { %>
+            <div class="book-item">
+              <img
+                src="<%= author.image %>"
+                alt="<%= author.name %> picture"
+                class="book-image"
+              />
+              <h5><%= author.name %></h5>
+              <p><%= author.description %></p>
+            </div>
+            <% }); %>
+          </div> -->
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

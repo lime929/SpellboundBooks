@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <div class="announcement-bar">FREE SHIPPING ON ORDERS $50 AND MORE!</div>
+      <div class="nav-bar">
+        <h1 id="title">SPELLBOUND BOOKS</h1>
+
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search by Title, Author, Keyword..."
+          />
+          <button type="button">🔍</button>
+          <a href="cart" class="cart-icon">
+            <img src="/images/cart.png" alt="Cart" />
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <a href="/"><span class="button">Home</span></a>
+        <a href="/catalog"><span class="button">Catalog</span></a>
+        <a href="/authors"><span class="button">Authors</span></a>
+        <a href="/community"><span class="button">Community</span></a>
+        <a href="/contact"><span class="button">Contact</span></a>
+      </div>
+    </div>
+
+    <!-- membership banner on all pages besides home which has sale banner -->
+    <section class="page-banner">
+      <img
+        src="<%= isHomePage ? '/images/weekendSale-banner.png' : '/images/membership-banner.png' %>"
+        alt="<%= isHomePage ? 'Weekend sale' : 'Membership' %>"
+      />
+    </section>
+
+    <%- body %>
+  </body>
+</html>

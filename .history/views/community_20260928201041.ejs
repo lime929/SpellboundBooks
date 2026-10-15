@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Community</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="community-title">
+      <h1>SpellBound Books <b>READS</b></h1>
+    </div>
+    <%- include("partials/communityHeader") %>
+     <div class="reviews-container">
+      <% communityReviews.forEach(review => { %>
+      <div class="review-card">
+        <img src="<%= review.image %>" alt="<%= review.book %>" />
+        <h2><%= review.book %></h2>
+        <p><strong>Reviewed by:</strong> <%= review.user %></p>
+        <p><%= review.review %></p>
+      </div>
+      <% }); %>
+    </div>
+    
+  </body>
+</html>

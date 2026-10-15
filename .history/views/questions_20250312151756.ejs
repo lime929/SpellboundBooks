@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Questions</title>
+    <link rel="stylesheet" href="/css/confetti_cuisine.css" />
+  </head>
+  <body>
+    <div class="list-container">
+      <% questions.forEach(s => { %>
+      <div class="question">
+        <p>
+          <span class="item-label">Name: </span>
+          <%= s.name %>
+        </p>
+        <p>
+          <span class="item-label">Email: </span>
+          <%= s.email %>
+        </p>
+        <p>
+          <span class="item-label">Inquiry: </span>
+          <%= s.inquiry %>
+        </p>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

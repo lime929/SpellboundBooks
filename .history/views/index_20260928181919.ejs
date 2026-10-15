@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Home</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="banner banner-main">
+        <img src="images/childrens-books.jpg" alt="Main Banner" />
+        <h2>Our Children's Books Picks</h2>
+      </section>
+      <section class="banner banner-preview">
+        <p>AVALIBLE 4/15</p>
+        <h3>
+          A fun dive into Photography with the creators of Polaroid, one of the
+          most iconic camera brands!
+        </h3>
+        <button>Preorder Today</button>
+        <img src="images/book-preview.jpg" alt="Preview Banner" />
+      </section>
+
+      <section class="featured">
+        <h2>Featured Books</h2>
+        <div class="book-list-index">
+          <% offeredBooks2.forEach(book => { %>
+          <div class="book-item">
+            <img
+              src="<%= book.image %>"
+              alt="<%= book.title %> cover"
+              class="book-image"
+            />
+            <h3><%= book.title %></h3>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><%= book.description %></p>
+          </div>
+          <% }); %>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

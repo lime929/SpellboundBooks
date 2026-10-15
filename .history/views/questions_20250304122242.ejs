@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confetti Cuisine | Subscribers</title>
+    <link rel="stylesheet" href="/css/confetti_cuisine.css" />
+  </head>
+  <body>
+    <div class="list-container">
+      <% subscribers.forEach(s => { %>
+      <div class="subscriber">
+        <p>
+          <span class="item-label">Name: </span>
+          <%= s.name %>
+        </p>
+        <p>
+          <span class="item-label">Email: </span>
+          <%= s.email %>
+        </p>
+        <p>
+          <span class="item-label">Zip Code: </span>
+          <%= s.zipCode %>
+        </p>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>

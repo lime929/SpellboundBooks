@@ -1,0 +1,26 @@
+<% if (offeredAdvertisements.length > 0) { %>
+  <div class="advertisementContainer bookpreview">
+          <% offeredAdvertisements.forEach((advertisement) => { %>
+            <article class="advertisement-card">
+                  <img
+                    src="/<%= advertisement.graphic %>"
+                alt="Graphic from<%= advertisement.title %>"
+                    class="advertisement-card_graphic"
+                  >
+
+              <img
+                src="/<%= advertisement.image %>"
+                alt="Cover of <%= advertisement.title %>"
+                class="advertisement-card_image"
+              >
+
+              <div class="advertisement-card_content">
+                <h3 class="advertisement-card_title"><%= advertisement.title %></h3>
+                <p class="advertisement-card_tagline"><%= advertisement.tagline %></p>
+              </div>
+                      <h4>BUY NOW</h4>
+
+            </article>
+          <% }); %>
+  </div>
+<% } %>

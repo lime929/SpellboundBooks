@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Catalog</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Our Book Store</h2>
+        <p>
+          Find the greatest books to read now, including new releases,
+          bookseller suggestions, and popular titles.
+        </p>
+      </div>
+      <div class="bookpreview">
+        <img src="images/money-book.jpg" alt="Money Book" />
+        <p>
+          Morgan Housel presents Timeless lessons on wealth, greed, and
+          happiness.
+        </p>
+        <h4>BUY NOW</h4>
+      </div>
+      <div class="content">
+        <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Non-Fiction</a></li>
+            <li><a href="#">Mystery</a></li>
+            <li><a href="#">Sci-Fi</a></li>
+            <li><a href="#">Fantasy</a></li>
+          </ul>
+        </aside>
+
+        <main class="book-list">
+          <div class="bestsellers">
+            <h3>Bestsellers</h3>
+            <% offeredBooks.slice(0, 4).forEach(book => { %>
+            <div class="book-item">
+              <img
+                src="<%= book.image %>"
+                alt="<%= book.title %> cover"
+                class="book-image"
+              />
+              <h3><%= book.title %></h3>
+              <p><%= book.author %></p>
+              <p><%= book.description %></p>
+            </div>
+            <% }); %>
+          </div>
+
+          <div class="new-releases">
+            <h3>New releases</h3>
+            <% offeredBooks.slice(-4).forEach(book => { %>
+            <div class="book-item">
+              <img
+                src="<%= book.image %>"
+                alt="<%= book.title %> cover"
+                class="book-image"
+              />
+              <h3><%= book.title %></h3>
+              <p><%= book.author %></p>
+              <p><%= book.description %></p>
+            </div>
+            <% }); %>
+          </div>
+        </main>
+       
+      </div>
+    </div>
+  </body>
+</html>

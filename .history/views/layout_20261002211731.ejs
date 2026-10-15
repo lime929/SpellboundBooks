@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books</title>
+    <link rel="icon" type="image/png" href="/images/magic-wand.png" />
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <div class="announcement-bar">FREE SHIPPING ON ORDERS $50 AND MORE!</div>
+      <div class="nav-bar">
+        <h1 id="title">
+          <a href="/">
+            <img src="/images/magic-wand.png" alt="" class="brand-logo" />
+            <span>SPELLBOUND BOOKS</span>
+          </a>
+        </h1>
+
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search by Title, Author, Keyword..."
+          />
+          <button type="button">🔍</button>
+          <a href="cart" class="cart-icon">
+            <img src="/images/cart.png" alt="Cart" />
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>" <%= currentPath === '/' ? 'aria-current="page"' : '' %>>Home</a>
+          <a href="/catalog" class="<%= currentPath === '/catalog' ? 'active' : '' %>" <%= currentPath === '/catalog' ? 'aria-current="page"' : '' %>>Catalog</a>
+          <a href="/authors" class="<%= currentPath === '/authors' ? 'active' : '' %>" <%= currentPath === '/authors' ? 'aria-current="page"' : '' %>>Authors</a>
+          <a href="/community" class="<%= currentPath === '/community' ? 'active' : '' %>" <%= currentPath === '/community' ? 'aria-current="page"' : '' %>>Community</a>
+          <a href="/contact" class="<%= currentPath === '/contact' ? 'active' : '' %>" <%= currentPath === '/contact' ? 'aria-current="page"' : '' %>>Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- membership banner on all pages besides home which has sale banner -->
+    <section class="page-banner">
+      <img
+        src="<%= isHomePage ? '/images/weekendSale-banner.png' : '/images/membership-banner.png' %>"
+        alt="<%= isHomePage ? 'Weekend sale' : 'Membership' %>"
+      />
+    </section>
+
+    <%- body %>
+  </body>
+</html>

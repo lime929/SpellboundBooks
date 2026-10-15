@@ -1,0 +1,45 @@
+<% offeredBooks.forEach((book) => { %>
+  <article class="book-card">
+    <img
+      src="/<%= book.image %>"
+      alt="Cover of <%= book.title %>"
+      class="book-card_image"
+    >
+
+    <div class="book-card_content">
+      <h2 class="book-card_title"><%= book.title %></h2>
+
+      <p class="book-card_author">
+        By <%= book.author %>
+      </p>
+
+      <p class="book-card_description">
+        <%= book.description %>
+      </p>
+
+      <p class="book-format">
+        <strong>Format:</strong> <%= book.format %>
+      </p>
+
+      <p class="book-price">
+        <strong>Price:</strong> $<%= book.price.toFixed(2) %>
+      </p>
+
+      <p class="book-rating">
+        <span
+          class="stars"
+          role="img"
+          aria-label="<%= book.rating %> out of 5 stars"
+        >
+          <% for (let star = 1; star <= 5; star++) { %>
+            <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+          <% } %>
+        </span>
+
+        <span class="rating-number">
+          <%= book.rating %> / 5
+        </span>
+      </p>
+    </div>
+  </article>
+<% }) %>

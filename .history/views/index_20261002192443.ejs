@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Home</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="banner banner-main">
+        <h2>Our Children's Books Picks</h2>
+        <p>Discover the magic of reading with our special sale on children's books!</p>
+      </section>
+
+
+
+      <section class="featured catalog-section">
+        <div class="catalog-section_heading">
+          <h2>Featured Books</h2>
+          <p>Stories our readers can't put down.</p>
+        </div>
+        <div class="book-grid">
+          <% offeredBooks2.forEach((book) => { %>
+            <article class="book-card">
+              <img
+                src="/<%= book.image %>"
+                alt="Cover of <%= book.title %>"
+                class="book-card_image"
+              >
+
+              <div class="book-card_content">
+                <h3 class="book-card_title"><%= book.title %></h3>
+                <p class="book-card_author"><%= book.author %></p>
+                <p class="book-card_format"><%= book.format %></p>
+                <p class="book-card_price">$<%= book.price.toFixed(2) %></p>
+                <p class="book-card_rating">
+                  <span
+                    class="stars"
+                    role="img"
+                    aria-label="<%= book.rating %> out of 5 stars"
+                  >
+                    <% for (let star = 1; star <= 5; star++) { %>
+                      <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+                    <% } %>
+                  </span>
+                  <span class="rating-number"><%= book.rating %> / 5</span>
+                </p>
+              </div>
+            </article>
+          <% }); %>
+        </div>
+      </section>
+
+                <%- include("partials/bookBannerAd") %>
+
+                   <section class="catalog-section">
+            <div class="catalog-section_heading">
+              <h2>New Releases</h2>
+              <p>Discover the newest additions to Spellbound Books.</p>
+            </div>
+
+            <div class="book-grid">
+              <% offeredBooks.slice(5, 10).forEach((book) => { %>
+                <article class="book-card">
+                  <img
+                    src="/<%= book.image %>"
+                    alt="Cover of <%= book.title %>"
+                    class="book-card_image"
+                  >
+
+                  <div class="book-card_content">
+                    <h3 class="book-card_title"><%= book.title %></h3>
+                    <p class="book-card_author"><%= book.author %></p>
+                    <p class="book-card_format"><%= book.format %></p>
+                    <p class="book-card_price">$<%= book.price.toFixed(2) %></p>
+                    <p class="book-card_rating">
+                      <span
+                        class="stars"
+                        role="img"
+                        aria-label="<%= book.rating %> out of 5 stars"
+                      >
+                        <% for (let star = 1; star <= 5; star++) { %>
+                          <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+                        <% } %>
+                      </span>
+                      <span class="rating-number"><%= book.rating %> / 5</span>
+                    </p>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+          </section>
+    </div>
+  </body>
+</html>

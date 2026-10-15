@@ -1,0 +1,11 @@
+{
+  "name": "it231-final-mendez",
+  "version": "1.0.0",
+  "description": "IT231 - Final Project: Spellbound Books",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liliana Mendez",
+  "license": "ISC"
+}

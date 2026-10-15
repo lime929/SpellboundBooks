@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books | Catalog</title>
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Our Book Store</h2>
+        <p>
+          Find the greatest books to read now, including new releases,
+          bookseller suggestions, and popular titles.
+        </p>
+      </div>
+      <div class="bookpreview">
+        <img src="images/money-book.jpg" alt="Money Book" />
+        <p>
+          Morgan Housel presents Timeless lessons on wealth, greed, and
+          happiness.
+        </p>
+        <h4>BUY NOW</h4>
+      </div>
+      <div class="content">
+        <aside class="sidebar">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Fiction</a></li>
+            <li><a href="#">Non-Fiction</a></li>
+            <li><a href="#">Mystery</a></li>
+            <li><a href="#">Poetry</a></li>
+          </ul>
+        </aside>
+
+        <main class="book-list">
+          <section class="catalog-section">
+  <div class="catalog-section_heading">
+    <h1>Best Sellers</h1>
+    <p>Explore the reader-favorite titles in our collection.</p>
+  </div>
+
+  <div class="book-grid">
+    <% offeredBooks.slice(0, 5).forEach((book) => { %>
+      <article class="book-card">
+        <img
+          src="/<%= book.image %>"
+          alt="Cover of <%= book.title %>"
+          class="book-card__image"
+          style="width: 170px; height: 245px; object-fit: cover;"
+
+        >
+
+        <div class="book-card__content">
+          <h2 class="book-card__title"><%= book.title %></h2>
+
+          <p class="book-card__author">
+            By <%= book.author %>
+          </p>
+
+          <p class="book-card__description">
+            <%= book.description %>
+          </p>
+
+          <p class="book-card__format">
+            <strong>Format:</strong> <%= book.format %>
+          </p>
+
+          <p class="book-card__price">
+            <strong>Price:</strong> $<%= book.price.toFixed(2) %>
+          </p>
+
+          <p class="book-card__rating">
+            <span
+              class="stars"
+              role="img"
+              aria-label="<%= book.rating %> out of 5 stars"
+            >
+              <% for (let star = 1; star <= 5; star++) { %>
+                <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+              <% } %>
+            </span>
+
+            <span class="rating-number">
+              <%= book.rating %> / 5
+            </span>
+          </p>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<section class="catalog-section">
+  <div class="catalog-section__heading">
+    <h2>New Releases</h2>
+    <p>Discover the newest additions to Spellbound Books.</p>
+  </div>
+
+  <div class="book-grid">
+    <% offeredBooks.slice(5, 10).forEach((book) => { %>
+      <article class="book-card">
+        <img
+          src="/<%= book.image %>"
+          alt="Cover of <%= book.title %>"
+          class="book-card_image"
+          style="width: 170px; height: 245px; object-fit: cover;"
+        >
+
+        <div class="book-card_content">
+          <h3 class="book-card_title"><%= book.title %></h3>
+
+          <p class="book-card_author">
+            By <%= book.author %>
+          </p>
+
+          <p class="book-card_description">
+            <%= book.description %>
+          </p>
+
+          <p class="book-card_format">
+            <strong>Format:</strong> <%= book.format %>
+          </p>
+
+          <p class="book-card_price">
+            <strong>Price:</strong> $<%= book.price.toFixed(2) %>
+          </p>
+
+          <p class="book-card_rating">
+            <span
+              class="stars"
+              role="img"
+              aria-label="<%= book.rating %> out of 5 stars"
+            >
+              <% for (let star = 1; star <= 5; star++) { %>
+                <%= star <= Math.round(book.rating) ? "★" : "☆" %>
+              <% } %>
+            </span>
+
+            <span class="rating-number">
+              <%= book.rating %> / 5
+            </span>
+          </p>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+        </main>
+       
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpellBound Books</title>
+    <link rel="icon" type="image/png" href="/images/magic-wand.png" />
+    <link rel="stylesheet" href="/css/spellbound_books.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <div class="announcement-bar">FREE SHIPPING ON ORDERS $50 AND MORE!</div>
+      <div class="nav-bar">
+        <h1 id="title">
+          <a href="/">
+            <img src="/images/magic-wand.png" alt="" class="brand-logo" />
+            <span>SPELLBOUND BOOKS</span>
+          </a>
+        </h1>
+
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search by Title, Author, Keyword..."
+          />
+          <button type="button" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.3"></circle>
+              <path d="m15.5 15.5 4.2 4.2"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="header-actions">
+          <a href="#" class="header-action cart-icon" aria-label="Cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6"></path>
+              <circle cx="10" cy="20" r="1"></circle>
+              <circle cx="18" cy="20" r="1"></circle>
+            </svg>
+          </a>
+          <a href="#membership-banner" class="header-action join-action">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.5 14.6 9l6 .8-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.3-4.2 6-.8L12 3.5Z"></path>
+            </svg>
+            <span>Join</span>
+          </a>
+          <a href="/contact" class="header-action signin-action">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.2"></circle>
+              <path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Sign In</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-bar nav-links-bar">
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>" <%= currentPath === '/' ? 'aria-current="page"' : '' %>>Home</a>
+          <a href="/catalog" class="<%= currentPath === '/catalog' ? 'active' : '' %>" <%= currentPath === '/catalog' ? 'aria-current="page"' : '' %>>Catalog</a>
+          <a href="/authors" class="<%= currentPath === '/authors' ? 'active' : '' %>" <%= currentPath === '/authors' ? 'aria-current="page"' : '' %>>Authors</a>
+          <a href="/community" class="<%= currentPath === '/community' ? 'active' : '' %>" <%= currentPath === '/community' ? 'aria-current="page"' : '' %>>Community</a>
+          <a href="/contact" class="<%= currentPath === '/contact' ? 'active' : '' %>" <%= currentPath === '/contact' ? 'aria-current="page"' : '' %>>Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- membership banner on all pages besides home which has sale banner -->
+    <section class="page-banner" id="membership-banner">
+      <img
+        src="<%= isHomePage ? '/images/weekendSale-banner.png' : '/images/membership-banner.png' %>"
+        alt="<%= isHomePage ? 'Weekend sale' : 'Membership' %>"
+      />
+    </section>
+
+    <%- body %>
+  </body>
+</html>
