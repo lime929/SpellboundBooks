@@ -1410,11 +1410,9 @@ form button:hover {
   display: inline-block;
   margin-bottom: 12px;
   padding: 5px 9px;
-
   background-color: #e6eee7;
   border: 1px solid #cbd9ce;
   border-radius: 3px;
-
   color: #2f4858;
   font-family: "Montserrat", sans-serif;
   font-size: 0.65rem;
